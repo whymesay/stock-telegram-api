@@ -1,4 +1,4 @@
-package stockdata
+package stock_telegram_bot
 
 import "encoding/json"
 
@@ -25,4 +25,12 @@ func (s StockData) String() string {
 type StockApi interface {
 	Query(code string) *StockData
 	BatchQuery(codes []string) []*StockData
+}
+
+func ApiFactory(apiSource string) StockApi {
+	if apiSource == "sina" {
+		return new(SinaStockApi)
+	}
+	panic("must have api source ")
+	return nil
 }

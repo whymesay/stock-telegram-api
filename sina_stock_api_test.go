@@ -1,4 +1,4 @@
-package stockdata
+package stock_telegram_bot
 
 import (
 	"fmt"
